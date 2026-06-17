@@ -1,18 +1,27 @@
-def greet(name):
-    print("Hello", name)
+class student:
+    def __init__(self,name,age,marks,department):
+        self.name=name
+        self.age=age
+        self.marks=marks
+        self.department=department
 
-greet("Aashir")
+    def call(self):
+        print(f"Name {self.name}")
+        print(f"Age {self.age}")
+        print(f"Marks {self.marks}")
+        print(f"Department {self.department}")
 
+    def average_marks(self):
+        total=0
+        num=len(self.marks)
+        for i in self.marks:
+            total+=i
+        print(f"Average {total/num}")
 
-def add(a,b):
-    return a+b
-print(add(3,5))
+x=student("Aashir", 21,[10,20,30],"bscs")
+x.call()
+x.average_marks()
 
-def is_even(num):
-    if (num%2)==0:
-        return True
-    else:
-        return False
-
-print(is_even(4))
-print(is_even(5))
+y=student("Yasir", 27,[40,50,60],"mechatronics engineer")
+y.call()
+y.average_marks()
