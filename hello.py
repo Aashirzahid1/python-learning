@@ -1,20 +1,16 @@
 class animal:
     def __init__(self, name, sound):
-        self.__name=name
+        self.name=name
         self.sound=sound
 
-    def detail(self):
-        print(f"{self.__name} sound {self.sound}")
-
 class dog(animal):
-    def __init__(self, age, name, sound):
-        super().__init__(name,sound)
-        self.age=age
-        self.gender="Male"
+    def __init__(self, name, sound):
+        super().__init__(name, sound)
 
-   
+    def detail(self):
+        print(f"{self.name} sound {self.sound}")
 
 
-dog1=dog(55,"smarto","woof")
+dog1=dog("smarto","woof")
 
 dog1.detail()
