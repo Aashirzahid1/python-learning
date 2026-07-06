@@ -1,26 +1,20 @@
-class BankAccount:
-    def __init__(self,balance):
-        self.__balance=balance
+class animal:
+    def __init__(self, name, sound):
+        self.__name=name
+        self.sound=sound
+
+    def detail(self):
+        print(f"{self.__name} sound {self.sound}")
+
+class dog(animal):
+    def __init__(self, age, name, sound):
+        super().__init__(name,sound)
+        self.age=age
+        self.gender="Male"
+
+   
 
 
+dog1=dog(55,"smarto","woof")
 
-    def get_balance(self):
-        print(f"your balance is {self.__balance}")
-
-
-    def deposit(self,amount):
-        if amount>0:
-            self.__balance+=amount
-
-
-    def withdraw(self, amount):
-        if amount > self.__balance:
-            print("Insufficient Balance")
-        else:
-            self.__balance -= amount
-            
-
-acc=BankAccount(1000)
-acc.deposit(500)
-acc.withdraw(300)
-acc.get_balance()
+dog1.detail()
