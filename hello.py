@@ -1,27 +1,22 @@
-class student:
-    def __init__(self,name,age,marks,department):
-        self.name=name
-        self.age=age
-        self.marks=marks
-        self.department=department
+class Car:
+    def __init__(self,brand,model,year):
+        self.__brand=brand
+        self.model=model
+        self.year=year
 
-    def call(self):
-        print(f"Name {self.name}")
-        print(f"Age {self.age}")
-        print(f"Marks {self.marks}")
-        print(f"Department {self.department}")
 
-    def average_marks(self):
-        total=0
-        num=len(self.marks)
-        for i in self.marks:
-            total+=i
-        print(f"Average {total/num}")
+    def update_brand(self,brand):
+        self.__brand=brand
 
-x=student("Aashir", 21,[10,20,30],"bscs")
-x.call()
-x.average_marks()
 
-y=student("Yasir", 27,[40,50,60],"mechatronics engineer")
-y.call()
-y.average_marks()
+    def display_info(self):
+        print(f"Your car brand {self.__brand} and model {self.model} manufacturing year {self.year}")
+    
+    def start_engine(self):
+        print("engine started")
+
+car1=Car("Toyota", "corolla", 2022)
+car1.__brand="suzuki"
+car1.display_info()
+car1.start_engine()
+ 
