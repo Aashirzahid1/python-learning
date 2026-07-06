@@ -1,22 +1,26 @@
-class Car:
-    def __init__(self,brand,model,year):
-        self.__brand=brand
-        self.model=model
-        self.year=year
+class BankAccount:
+    def __init__(self,balance):
+        self.__balance=balance
 
 
-    def update_brand(self,brand):
-        self.__brand=brand
+
+    def get_balance(self):
+        print(f"your balance is {self.__balance}")
 
 
-    def display_info(self):
-        print(f"Your car brand {self.__brand} and model {self.model} manufacturing year {self.year}")
-    
-    def start_engine(self):
-        print("engine started")
+    def deposit(self,amount):
+        if amount>0:
+            self.__balance+=amount
 
-car1=Car("Toyota", "corolla", 2022)
-car1.__brand="suzuki"
-car1.display_info()
-car1.start_engine()
- 
+
+    def withdraw(self, amount):
+        if amount > self.__balance:
+            print("Insufficient Balance")
+        else:
+            self.__balance -= amount
+            
+
+acc=BankAccount(1000)
+acc.deposit(500)
+acc.withdraw(300)
+acc.get_balance()
