@@ -1,113 +1,74 @@
-fruits=["apple","banana","cherry","peach","mango"]
-print(fruits[0])
-print(fruits[len(fruits)-1])
-print(fruits[2])
+students=[]
+add=[]
+while True:
+    
+    print("""
+         1. Add Students
+         2. Veiw Students
+         3. Update Students
+         4. Remove Students
+         5. Show Highest Grade
+         6. Show Lowest Grade
+         7. Show Average Grade
+          8. Exit
+          9. search student
+           """)
+    
 
-#Question 2
+    num=int(input("Enter the choice"))
 
-numbers=[10,20,30]
-
-numbers.append(40)
-
-numbers.insert(0,5)
-
-print(numbers)
-
-
-# Q3 
-a=[1,2]
-b=[3,4]
-
-a.append(b)
-print(a)
-a.pop()
-print(a)
-
-a.extend(b)
-print(a)
-
-#Q4
-colors=["red","green","blue"]
-for x in range(len(colors)-1):
-    if colors[x]=="green":
-        colors[x]="yellow"
-print(colors)
-
-
-# Q5 
-
-animals=["cat","dog","bird","fish"]
-animals.pop()
-print(animals)
-
-#Q6
-
-sentence = "python is fun to learn"
-sentence_list=sentence.split(" ")
-sentence_list.append("today")
-print(sentence_list)
-again_sentence=",".join(sentence_list)
-print(again_sentence)
-
-print(again_sentence.replace(","," "))
-
-
-# Q7
-
-numbers=[4,2,7,2,9,2]
-print(numbers.count(2))
-print(numbers.index(7))
-
-
-#Q8
-lists=[]
-for x in range(5):
-    num=input("Enter a num:")
-    lists.append(num)
-print(lists)
-print(max(lists))
-print(min(lists))
-total=0
-for x in range(5):
-   total+=int(lists[x])
-print(total)
-print(f"Average: {total/5}")
-
-
-#Q9 
-numbers=[7,2,9,4,5]
-maximum=0
-for i in range(len(numbers)-1):
-    if numbers[i]>maximum:
-        maximum=numbers[i]
-print(maximum)
-
-
-#Final Task
-
-task=[]
-x=True
-while x:
-    print("1. Add a task")
-    print("2. veiw all tasks")
-    print("3. Remove a task")
-    print("4. Exit")
-
-    num=int(input("Enter a task"))
-
-    if num == 1:
-        new=input("enter the task")
-        task.append(new)
-
-    if num == 2:
-        print(task)
-
-    if num == 3:
-        for i,j in enumerate(task):
-         print(i,j)
-        new=int(input("Enter the task index you wnat to remove"))
-        task.pop(new)
-        print(task)
-
-    if num == 4:
-        x=False
+    if num==1:
+            name=input("Enter the student name")
+            add.append(name)
+            grade=int(input("Enter his Grade"))
+            add.append(grade)
+            students.append(add.copy())
+            print(students)
+            add.clear()
+            
+    elif num==2:
+          for stu in students:
+                print(stu)
+                print(stu[0]," - ",stu[1])
+    elif num==3:
+          for stu,index in enumerate(students):
+                print(stu,index)
+          upgrade=int(input("Enter the index of student whose grade you want to be updated"))
+          new_grade=int(input("enter new grade"))
+          if 0<=upgrade<=len(students)-1:
+                students[upgrade][1]=new_grade
+    elif num==4:
+          for student,index in enumerate(students):
+                print(students,index)
+          remove=int(input("enter the student index you want to remove"))
+          students.pop(remove)
+    elif num==5:
+          highest_grade=students[0][1]
+          print(highest_grade)
+          for student in students:
+                      if student[1]>highest_grade:
+                            highest_grade=student[1]
+          print("The highest grade is:",highest_grade)
+    elif num==6:
+          lowest_grade=students[0][1]
+          for student in students:
+                      if student[1]<lowest_grade:
+                            lowest_grade=student[1]
+          print("the lowest grade is: ",lowest_grade)  
+    elif num==7:
+          total=0
+          count=0
+          for student in students:
+                      count+=1
+                      total+=student[1]
+          print(f"Average: {total/count}")
+    elif num==8:
+          print("Exiting the student portal")
+          break
+    elif num==9:
+           search=input("Enter student name")
+           for student in students:
+                  if student[0]==search:
+                         print(student[0]," - ",student[1])
+                  else:
+                         print("student not found")
